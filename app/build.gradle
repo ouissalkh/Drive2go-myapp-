@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+    //alias(libs.plugins.google.gms.google.services)
+    id 'com.google.gms.google-services' // si tu utilises Firebase
+}
+
+android {
+    namespace 'com.example.drive_2_go'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.drive_2_go"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.activity:activity:1.9.0' // pas ktx
+    implementation 'androidx.room:room-runtime:2.6.0'
+    implementation libs.firebase.analytics
+    annotationProcessor 'androidx.room:room-compiler:2.6.0'
+
+    //firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-storage")
+
+    //Envoi d'email
+    implementation("com.sun.mail:android-mail:1.6.7")
+    implementation("com.sun.mail:android-activation:1.6.7")
+
+
+
+}

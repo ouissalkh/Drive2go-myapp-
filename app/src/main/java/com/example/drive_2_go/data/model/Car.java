@@ -2,36 +2,32 @@ package com.example.drive_2_go.data.model;
 
 public class Car {
     private int id;
-    private String marque;
-    private String modele;
-    private String type;
-    private String couleur;
-    private double prixJour;
-    private int disponibilite;
-    private String photo;
+    private String brand;
+    private String model;
+    private double price;
+    private boolean available;
+
+    public Car(int id, String brand, String model, double price, boolean available) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.available = available;
+    }
 
     // Getters et Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public String getMarque() { return marque; }
-    public void setMarque(String marque) { this.marque = marque; }
+    public String getBrand() { return brand; }
+    public void setBrand(String brand) { this.brand = brand; }
 
-    public String getModele() { return modele; }
-    public void setModele(String modele) { this.modele = modele; }
+    public String getModel() { return model; }
+    public void setModel(String model) { this.model = model; }
 
-    public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
 
-    public String getCouleur() { return couleur; }
-    public void setCouleur(String couleur) { this.couleur = couleur; }
-
-    public double getPrixJour() { return prixJour; }
-    public void setPrixJour(double prixJour) { this.prixJour = prixJour; }
-
-    public int getDisponibilite() { return disponibilite; }
-    public void setDisponibilite(int disponibilite) { this.disponibilite = disponibilite; }
-
-    public String getPhoto() { return photo; }
-    public void setPhoto(String photo) { this.photo = photo; }
+    public boolean isAvailable() { return available; }
+    public void setAvailable(boolean available) { this.available = available; }
 }

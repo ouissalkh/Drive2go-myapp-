@@ -1,59 +1,56 @@
 package com.example.drive_2_go.data.repository;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.example.drive_2_go.data.database.DatabaseHelper;
+import android.app.Application;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
+import com.example.drive_2_go.data.dao.CarDao;
+import com.example.drive_2_go.data.database.AppDatabase;
 import com.example.drive_2_go.data.model.Car;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CarRepository {
-    private DatabaseHelper dbHelper;
 
-    public CarRepository(Context context) {
-        dbHelper = new DatabaseHelper(context);
+    private final CarDao carDao;
+    private final MutableLiveData<List<Car>> allCars = new MutableLiveData<>();
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    public CarRepository(Application application) {
+        AppDatabase database = AppDatabase.getInstance(application);
+        carDao = database.carDao();
+        refresh();
     }
 
-    // Ajouter une voiture
-    public long insertCar(Car car) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("marque", car.getMarque());
-        values.put("modele", car.getModele());
-        values.put("type", car.getType());
-        values.put("couleur", car.getCouleur());
-        values.put("prix_jour", car.getPrixJour());
-        values.put("disponibilite", car.getDisponibilite());
-        values.put("photo", car.getPhoto());
-        long id = db.insert("voitures", null, values);
-        db.close();
-        return id;
+    public LiveData<List<Car>> getAllCars() {
+        return allCars;
     }
 
-    // Récupérer toutes les voitures
-    public List<Car> getAllCars() {
-        List<Car> cars = new ArrayList<>();
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM voitures", null);
-        if(cursor.moveToFirst()){
-            do {
-                Car car = new Car();
-                car.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
-                car.setMarque(cursor.getString(cursor.getColumnIndexOrThrow("marque")));
-                car.setModele(cursor.getString(cursor.getColumnIndexOrThrow("modele")));
-                car.setType(cursor.getString(cursor.getColumnIndexOrThrow("type")));
-                car.setCouleur(cursor.getString(cursor.getColumnIndexOrThrow("couleur")));
-                car.setPrixJour(cursor.getDouble(cursor.getColumnIndexOrThrow("prix_jour")));
-                car.setDisponibilite(cursor.getInt(cursor.getColumnIndexOrThrow("disponibilite")));
-                car.setPhoto(cursor.getString(cursor.getColumnIndexOrThrow("photo")));
-                cars.add(car);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
-        return cars;
+    public void insert(Car car) {
+        executor.execute(() -> {
+            carDao.insert(car);
+            refresh();
+        });
+    }
+
+    public void update(Car car) {
+        executor.execute(() -> {
+            carDao.update(car);
+            refresh();
+        });
+    }
+
+    public void delete(Car car) {
+        executor.execute(() -> {
+            carDao.delete(car.getId());
+            refresh();
+        });
+    }
+
+    private void refresh() {
+        executor.execute(() -> allCars.postValue(carDao.getAll()));
     }
 }

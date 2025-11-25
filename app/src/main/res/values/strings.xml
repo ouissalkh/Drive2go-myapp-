@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Drive_2_GO</string>
+    <string name="locations_par_mois">Locations par mois</string>
+
 </resources>
