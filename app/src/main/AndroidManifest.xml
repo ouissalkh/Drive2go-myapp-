@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.drive_2_go">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -13,30 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Drive_2_GO">
         <activity
-            android:name=".ui.Gestion_Reservations.ReservationsActivity"
+            android:name=".ui.Admin.addCar.addCarActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Gestion_Reservations.UsersActivity"
+            android:name=".ui.Client.start.GetStartedActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Admin.DashboardActivity"
+            android:name=".ui.Admin.Table_bord.adminActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Admin.DashboadActivity"
+            android:name=".ui.Client.login.LoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.addCar.addCarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.start.startActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Admin.adminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false" />
-        <activity android:name=".ui.description.DescriptionCarActivity" />
+        <activity android:name=".ui.Client.description.DescriptionCarActivity" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">

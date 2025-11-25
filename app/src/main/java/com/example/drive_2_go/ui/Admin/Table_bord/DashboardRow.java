@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.Admin;
+package com.example.drive_2_go.ui.Admin.Table_bord;
 
 public class DashboardRow {
 

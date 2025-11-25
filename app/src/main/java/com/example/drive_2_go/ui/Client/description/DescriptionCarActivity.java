@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.description;
+package com.example.drive_2_go.ui.Client.description;
 
 import android.os.Bundle;
 import android.widget.ImageButton;

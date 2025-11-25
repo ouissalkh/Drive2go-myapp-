@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.Gestion_Reservations;
+package com.example.drive_2_go.ui.Admin.Gestion_Reservations;
 
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.addCar;
+package com.example.drive_2_go.ui.Admin.addCar;
 
 import android.os.Bundle;
 

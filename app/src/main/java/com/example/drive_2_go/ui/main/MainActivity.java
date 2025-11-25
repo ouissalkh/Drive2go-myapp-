@@ -10,9 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.activity.EdgeToEdge;
 
-import com.example.drive_2_go.ui.Admin.DashboardActivity;
-import com.example.drive_2_go.ui.Admin.adminActivity;
-import com.example.drive_2_go.ui.description.DescriptionCarActivity;
+import com.example.drive_2_go.ui.Client.description.DescriptionCarActivity;
 import com.example.drive_2_go.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,17 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Récupérer le bouton
         Button switchBtn = findViewById(R.id.switchbtn);
-        Button adminBtn = findViewById(R.id.adminbtn);
 
         // Ajouter un listener pour ouvrir DescriptionCar
         switchBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, DescriptionCarActivity.class);
-            startActivity(intent);
-        });
-
-        // Ajouter un listener pour ouvrir admin activity
-        adminBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
             startActivity(intent);
         });
     }

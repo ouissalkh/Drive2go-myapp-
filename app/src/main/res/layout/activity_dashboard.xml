@@ -13,14 +13,14 @@
         <include layout="@layout/activity_admin"/>
 
         <!-- BarChart -->
-        <com.example.drive_2_go.ui.Admin.BarChartView
+        <com.example.drive_2_go.ui.Admin.Table_bord.BarChartView
             android:id="@+id/barChart"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginTop="20dp"/>
 
         <!-- PieChart -->
-        <com.example.drive_2_go.ui.Admin.PieChartView
+        <com.example.drive_2_go.ui.Admin.Table_bord.PieChartView
             android:id="@+id/pieChart"
             android:layout_width="match_parent"
             android:layout_height="220dp"
