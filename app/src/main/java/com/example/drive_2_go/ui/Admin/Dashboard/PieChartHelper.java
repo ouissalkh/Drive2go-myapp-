@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.Admin.Table_bord;
+package com.example.drive_2_go.ui.Admin.Dashboard;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,12 +9,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import java.util.List;
 
-public class PieChartView extends View {
+public class PieChartHelper extends View {
 
     private List<Integer> data;
     private Paint paint = new Paint();
 
-    public PieChartView(Context c, AttributeSet a) {
+    public PieChartHelper(Context c, AttributeSet a) {
         super(c, a);
         paint.setStyle(Paint.Style.FILL);
     }

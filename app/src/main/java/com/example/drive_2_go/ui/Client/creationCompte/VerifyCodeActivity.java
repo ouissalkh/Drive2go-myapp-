@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.drive_2_go.R;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -50,7 +51,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
                     Boolean alreadyVerified = doc.getBoolean("account_verified");
                     if (alreadyVerified != null && alreadyVerified) {
                         Toast.makeText(this, "Compte déjà vérifié", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(VerifyCodeActivity.this, com.example.locationvoiture.LoginActivity.class));
+                        startActivity(new Intent(VerifyCodeActivity.this, com.example.drive_2_go.ui.Client.login.LoginActivity.class));
                         finish();
                         return;
                     }
@@ -61,7 +62,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
                                 .update("account_verified", true)
                                 .addOnSuccessListener(aVoid -> {
                                     Toast.makeText(this, "Compte vérifié ✅", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(VerifyCodeActivity.this, com.example.locationvoiture.LoginActivity.class));
+                                    startActivity(new Intent(VerifyCodeActivity.this, com.example.drive_2_go.ui.Client.login.LoginActivity.class));
                                     finish();
                                 })
                                 .addOnFailureListener(e ->

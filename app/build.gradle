@@ -10,12 +10,17 @@ android {
 
     defaultConfig {
         applicationId "com.example.drive_2_go"
-        minSdk 21
+        minSdk 23
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        packagingOptions {
+            resources {
+                excludes += ['META-INF/NOTICE.md', 'META-INF/LICENSE.md']
+            }
+        }
     }
 
     buildTypes {
@@ -47,11 +52,12 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
-
+    implementation 'com.google.firebase:firebase-database:20.3.0'
     //Envoi d'email
     implementation("com.sun.mail:android-mail:1.6.7")
     implementation("com.sun.mail:android-activation:1.6.7")
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
 }

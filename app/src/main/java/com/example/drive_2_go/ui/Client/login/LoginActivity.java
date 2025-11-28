@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.drive_2_go.R;
+import com.example.drive_2_go.ui.Admin.Table_bord.HomeActivityAdmin;
+import com.example.drive_2_go.ui.Client.HomeActivityClient;
+import com.example.drive_2_go.ui.Client.creationCompte.RegisterActivity;
+import com.example.drive_2_go.ui.Client.creationCompte.VerifyCodeActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;

@@ -12,25 +12,27 @@
         <!-- Les 4 cartes -->
         <include layout="@layout/activity_admin"/>
 
-        <!-- BarChart -->
-        <com.example.drive_2_go.ui.Admin.Table_bord.BarChartView
+        <!-- BarChart MPAndroidChart -->
+        <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
 
-        <!-- PieChart -->
-        <com.example.drive_2_go.ui.Admin.Table_bord.PieChartView
-            android:id="@+id/pieChart"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_marginTop="20dp"/>
 
-        <!-- Tableau -->
+
+        <!-- Tableau / RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/dashboardRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
+
     </LinearLayout>
 </ScrollView>
+    <!-- PieChart MPAndroidChart
+<com.github.mikephil.charting.charts.PieChart
+android:id="@+id/pieChart"
+android:layout_width="match_parent"
+android:layout_height="220dp"
+android:layout_marginTop="20dp" />-->

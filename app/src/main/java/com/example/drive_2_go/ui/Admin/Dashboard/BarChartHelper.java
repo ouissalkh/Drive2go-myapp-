@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.Admin.Table_bord;
+package com.example.drive_2_go.ui.Admin.Dashboard;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,12 +8,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import java.util.List;
 
-public class BarChartView extends View {
+public class BarChartHelper extends View {
 
     private List<Integer> data;
     private Paint paint = new Paint();
 
-    public BarChartView(Context c, AttributeSet a) {
+    public BarChartHelper(Context c, AttributeSet a) {
         super(c, a);
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(60);
