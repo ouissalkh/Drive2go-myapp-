@@ -3,44 +3,26 @@ package com.example.drive_2_go.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.activity.EdgeToEdge;
-
-import com.example.drive_2_go.ui.Admin.Table_bord.adminActivity;
-import com.example.drive_2_go.ui.Client.description.DescriptionCarActivity;
 import com.example.drive_2_go.R;
+import com.example.drive_2_go.ui.Client.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btnStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_getstarted);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        btnStart = findViewById(R.id.btn_start);
 
-        // Récupérer le bouton
-        Button switchBtn = findViewById(R.id.switchbtn);
-        Button adminbtn= findViewById(R.id.adminbtn);
-
-        // Ajouter un listener pour ouvrir DescriptionCar
-        switchBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, DescriptionCarActivity.class);
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-        });
-        // Ajouter un listener pour ouvrir DescriptionCar
-        adminbtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, adminActivity.class);
-            startActivity(intent);
+            finish();
         });
     }
 }
+

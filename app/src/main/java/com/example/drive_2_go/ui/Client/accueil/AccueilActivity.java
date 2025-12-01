@@ -4,17 +4,16 @@ import com.example.drive_2_go.R;
 import com.example.drive_2_go.data.model.Car;
 import com.example.drive_2_go.ui.Client.description.DescriptionCarActivity;
 import com.example.drive_2_go.ui.Client.favoris.Favoris;
-import com.example.drive_2_go.ui.Client.ptofil.Profil;
+import com.example.drive_2_go.ui.Client.history.HistoryActivity;
+import com.example.drive_2_go.ui.Client.profil.Profil;
 import com.example.drive_2_go.ui.adapter.BrandAdapter;
 import com.example.drive_2_go.ui.adapter.CarAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +44,7 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
         buttonProfil.setOnClickListener(v -> openProfil());
         buttonFavoris.setOnClickListener(v -> openFavoris());
         buttonHome.setOnClickListener(v -> Toast.makeText(this,"Déjà ici", Toast.LENGTH_SHORT).show());
+        buttonHistory.setOnClickListener(v -> openHistory());
 
         // RecyclerView des marques
         rvBrands = findViewById(R.id.rv_brands);
@@ -92,6 +92,9 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
 
     private void openFavoris(){
         startActivity(new Intent(AccueilActivity.this, Favoris.class));
+    }
+    private void openHistory(){
+        startActivity(new Intent(AccueilActivity.this, HistoryActivity.class));
     }
 
     private List<Car> createCarData() {

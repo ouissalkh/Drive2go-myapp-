@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.Client.ptofil;
+package com.example.drive_2_go.ui.Client.profil;
 
 
 import android.content.Intent;
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.drive_2_go.R;
 import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
 import com.example.drive_2_go.ui.Client.favoris.Favoris;
+import com.example.drive_2_go.ui.Client.history.HistoryActivity;
 import com.google.android.material.imageview.ShapeableImageView;
 
 public class Profil extends AppCompatActivity {
@@ -55,11 +56,10 @@ public class Profil extends AppCompatActivity {
         buttonHistory = findViewById(R.id.buttonHistory);
         buttonProfil = findViewById(R.id.buttonProfil);
 
-
-
         buttonCamera.setOnClickListener(v -> openGallery());
         buttonFavoris.setOnClickListener(v -> openFavoris());
         buttonHome.setOnClickListener(v -> openAccueil());
+        buttonHistory.setOnClickListener(v -> openHistory());
         buttonProfil.setOnClickListener(v -> Toast.makeText(this,"Déjà ici", Toast.LENGTH_SHORT).show());
         selectButton(buttonProfil);
     }
@@ -75,6 +75,9 @@ public class Profil extends AppCompatActivity {
     private void openAccueil(){
         Intent intent = new Intent(Profil.this, AccueilActivity.class);
         startActivity(intent);
+    }
+    private void openHistory(){
+        startActivity(new Intent(Profil.this, HistoryActivity.class));
     }
     private void openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.drive_2_go.R;
 import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
-import com.example.drive_2_go.ui.Client.ptofil.Profil;
+import com.example.drive_2_go.ui.Client.history.HistoryActivity;
+import com.example.drive_2_go.ui.Client.profil.Profil;
 
 public class Favoris extends AppCompatActivity{
 
@@ -31,6 +32,7 @@ public class Favoris extends AppCompatActivity{
         buttonProfil.setOnClickListener(v -> openProfil());
         buttonHome.setOnClickListener(v -> openAccueil());
         buttonFavoris.setOnClickListener(v -> Toast.makeText(this,"Déjà ici", Toast.LENGTH_SHORT).show());
+        buttonHistory.setOnClickListener(v -> openHistory());
         selectButton(buttonFavoris); // si tu es dans Favoris
     }
 
@@ -44,6 +46,9 @@ public class Favoris extends AppCompatActivity{
 
     private void openAccueil(){
         startActivity(new Intent(Favoris.this, AccueilActivity.class));
+    }
+    private void openHistory(){
+        startActivity(new Intent(Favoris.this, HistoryActivity.class));
     }
 
 }
