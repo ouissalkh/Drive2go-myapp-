@@ -14,6 +14,7 @@ import android.view.View;
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
     private List<Car> cars;
+
     private final OnCarClickListener listener;
     // 2. Définissez l'interface
     public interface OnCarClickListener {

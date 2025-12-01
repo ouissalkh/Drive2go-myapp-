@@ -7,20 +7,30 @@
     android:background="@color/material_dynamic_neutral80">
 
 
-    <!-- Barre de navigation -->
-
+    <!-- Message si aucun favori -->
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
+        android:id="@+id/tv_empty"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="Il y a pas encore des voitures favoris"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Il n’y a pas encore de voitures favorites"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"/>
+
+    <!-- Liste des favoris -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorites"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp"/>
 
     <include
         layout="@layout/bottom_navigation_bar"

@@ -11,6 +11,7 @@ import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
 
 public class DescriptionCarActivity extends AppCompatActivity {
     private ImageButton backButton;
+    private ImageButton favBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class DescriptionCarActivity extends AppCompatActivity {
 
         // 1. Initialisation du bouton de retour (Assurez-vous que cet ID existe dans description_car.xml)
         backButton = findViewById(R.id.backbtn);
+        ImageButton favBtn = findViewById(R.id.favbtn);
 
         backButton.setOnClickListener(v -> {
             backToHome();
@@ -26,6 +28,19 @@ public class DescriptionCarActivity extends AppCompatActivity {
 
         // Récupérer l'objet Car de l'Intent
         Car selectedCar = (Car) getIntent().getSerializableExtra("selected_car");
+        // Au départ -> afficher icône selon favoris
+        updateFavIcon(favBtn, selectedCar.isFavorite());
+        // Quand on clique sur bouton favoris
+        favBtn.setOnClickListener(v -> {
+            boolean newState = !selectedCar.isFavorite();
+            selectedCar.setFavorite(newState);
+
+            // Changer l’icône
+            updateFavIcon(favBtn, newState);
+
+            // Sauvegarder dans favoris
+            saveFavoriteState(selectedCar);
+        });
 
         if (selectedCar != null) {
             // Vous pouvez maintenant utiliser selectedCar pour afficher les détails
@@ -36,6 +51,20 @@ public class DescriptionCarActivity extends AppCompatActivity {
     }
     private void backToHome(){
         startActivity(new Intent(DescriptionCarActivity.this, AccueilActivity.class));
+    }
+
+    private void updateFavIcon(ImageButton favBtn, boolean isFav) {
+        if (isFav) {
+            favBtn.setColorFilter(getResources().getColor(android.R.color.holo_orange_light));
+        } else {
+            favBtn.setColorFilter(getResources().getColor(android.R.color.white));
+        }
+    }
+    private void saveFavoriteState(Car car) {
+        getSharedPreferences("favorites", MODE_PRIVATE)
+                .edit()
+                .putBoolean(car.getId() + "_fav", car.isFavorite())
+                .apply();
     }
 
 }

@@ -15,13 +15,14 @@
         android:layout_width="413dp"
         android:layout_height="348dp"
         android:layout_marginTop="76dp"
+        android:padding="60dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/car2"
+        android:src="@drawable/img_renault_captur"
+        app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/header"
@@ -53,20 +54,33 @@
                 android:src="@drawable/ic_backbtn"
                 app:tint="@android:color/white" />
 
-            <!-- Details text -->
-            <TextView
-                android:id="@+id/detailstextview"
+            <!-- Texte -->
+            <LinearLayout
+                android:id="@+id/layout_car_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_toStartOf="@id/favbtn"
-                android:layout_toEndOf="@id/backbtn"
+                android:layout_toStartOf="@+id/favbtn"
+                android:layout_toEndOf="@+id/backbtn"
                 android:gravity="center"
-                android:text="Details"
-                android:textColor="#007100"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_car_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Renault Captur"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_license_plate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GH-391-AD"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
             <!-- Bouton favori -->
             <ImageButton
@@ -100,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Mercedes A-Class"
+            android:text="Description"
             android:textColor="#FFF"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -113,40 +127,30 @@
             android:id="@+id/textView4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="The Mercedes A-Class Sedan is an entry-level luxury car designed with modern style!"
-            android:textColor="#007100"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="La Renault Captur portant la plaque GH-391-AD est un modèle  à essence proposé à 45 € par jour. Elle offre une autonomie  maximale de 800 km et peut accueillir jusqu’à 5 passagers avec  ses 5 portes. Son coffre permet de transporter 2 bagages, ce qui  la rend idéale pour les déplacements en famille ou entre amis.  Dotée d’une boîte manuelle et de la climatisation, elle garantit  un confort optimal et une conduite agréable."
+            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView2" />
+            app:layout_constraintTop_toBottomOf="@id/textView2"  />
 
         <!-- Overview title -->
-        <TextView
-            android:id="@+id/textViewOverview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Overview"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView4" />
 
         <!-- Cards: Capacity / Transmission / Speed -->
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewOverview">
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
 
             <!-- Capacity -->
             <LinearLayout
@@ -176,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="4 seats"
+                    android:text="5"
                     android:textColor="#FFF" />
             </LinearLayout>
 
@@ -251,11 +255,9 @@
         <LinearLayout
             android:id="@+id/priceLayout"
             android:layout_width="0dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background_bottom"
+            android:layout_height="90dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -265,11 +267,10 @@
                 android:id="@+id/pricetextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:gravity="left"
-                android:text="Price : "
-                android:textColor="#007100"
-                android:textSize="25dp"
+                android:text="Prix : "
+                android:textColor="#0D2301"
+                android:textSize="22dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -277,25 +278,24 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="right"
-                android:paddingRight="20dp"
-                android:text="200 DH / jr"
-                android:textColor="#fff"
-                android:textSize="25dp"
+                android:text="450 DH / jr"
+                android:textColor="#6F1111"
+                android:textSize="22dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Louer button -->
         <Button
             android:id="@+id/orderBtn"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#007100"
-            android:text="Louer Now"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#0D2301"
+            android:text="Louer maintenant"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:textSize="18sp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

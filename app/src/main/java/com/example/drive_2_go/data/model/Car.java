@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 // Car.java
 public class Car implements Serializable {
+    private int id;
     private String name;
     private String licensePlate;
     private String price;
@@ -16,11 +17,13 @@ public class Car implements Serializable {
     private int doorCount;
     private int peopleCount;
     private boolean isChecked; // Pour l'icône de la coche (ic_check)
+    private boolean isFavorite = false;
 
     // Constructeur complet
-    public Car(String name, String licensePlate, String price, int imageResId,
+    public Car(int id, String name, String licensePlate, String price, int imageResId,
                String fuelType, String maxKm, int baggageCount, boolean hasAC,
-               String gearType, int doorCount, int peopleCount, boolean isChecked) {
+               String gearType, int doorCount, int peopleCount, boolean isChecked, boolean isFavorite) {
+        this.id =id;
         this.name = name;
         this.licensePlate = licensePlate;
         this.price = price;
@@ -33,9 +36,12 @@ public class Car implements Serializable {
         this.doorCount = doorCount;
         this.peopleCount = peopleCount;
         this.isChecked = isChecked;
+        this.isFavorite = isFavorite;
     }
 
+
     // Getters pour tous les champs
+    public int getId() { return id; }
     public String getName() { return name; }
     public String getLicensePlate() { return licensePlate; }
     public String getPrice() { return price; }
@@ -48,4 +54,10 @@ public class Car implements Serializable {
     public int getDoorCount() { return doorCount; }
     public int getPeopleCount() { return peopleCount; }
     public boolean isChecked() { return isChecked; }
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 }

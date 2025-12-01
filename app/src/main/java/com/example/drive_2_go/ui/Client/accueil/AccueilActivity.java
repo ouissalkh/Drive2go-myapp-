@@ -100,6 +100,7 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
     private List<Car> createCarData() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car(
+                1,
                 "Renault Captur",
                 "GH-391-AD",
                 "450 Dh",
@@ -111,7 +112,8 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
                 "M",
                 5,
                 5,
-                true
+                true,
+                false
         ));
         return cars;
     }
