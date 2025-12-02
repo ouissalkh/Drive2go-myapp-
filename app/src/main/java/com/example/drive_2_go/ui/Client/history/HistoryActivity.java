@@ -54,6 +54,7 @@ public class HistoryActivity extends AppCompatActivity {
         buttonFavoris.setOnClickListener(v -> openFavoris());
         buttonHistory.setOnClickListener(v -> Toast.makeText(this,"Déjà ici", Toast.LENGTH_SHORT).show());
         buttonHome.setOnClickListener(v -> openAccueil());
+        selectButton(buttonHistory);
 
         // 1. Initialisation de la RecyclerView
         recyclerView = findViewById(R.id.rv_history_listings);

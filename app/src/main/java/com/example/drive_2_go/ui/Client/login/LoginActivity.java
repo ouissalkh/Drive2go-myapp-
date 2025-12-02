@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.example.drive_2_go.R;
 import com.example.drive_2_go.ui.Admin.Table_bord.HomeActivityAdmin;
-import com.example.drive_2_go.ui.Client.HomeActivityClient;
+import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
 import com.example.drive_2_go.ui.Client.creationCompte.RegisterActivity;
 import com.example.drive_2_go.ui.Client.creationCompte.VerifyCodeActivity;
 import com.google.android.material.textfield.TextInputEditText;
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                                     startActivity(new Intent(LoginActivity.this, HomeActivityAdmin.class));
                                     finish();
                                 } else {
-                                    startActivity(new Intent(LoginActivity.this, HomeActivityClient.class));
+                                    startActivity(new Intent(LoginActivity.this, AccueilActivity.class));
                                     finish();
                                 }
                             })

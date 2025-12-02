@@ -11,7 +11,9 @@ import com.example.drive_2_go.ui.adapter.CarAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +32,8 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
     private ImageButton buttonHome;
     private ImageButton buttonFavoris;
     private ImageButton buttonHistory;
+    private ImageButton btnMenu;
+    private LinearLayout contactInfoPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,18 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
         buttonFavoris.setOnClickListener(v -> openFavoris());
         buttonHome.setOnClickListener(v -> Toast.makeText(this,"Déjà ici", Toast.LENGTH_SHORT).show());
         buttonHistory.setOnClickListener(v -> openHistory());
+
+        // <<< LIAISON ET LOGIQUE DU NOUVEAU BOUTON/PANNEAU
+        btnMenu = findViewById(R.id.btn_menu);
+        contactInfoPanel = findViewById(R.id.contact_info_panel);
+
+        btnMenu.setOnClickListener(v -> {
+            if (contactInfoPanel.getVisibility() == View.GONE) {
+                contactInfoPanel.setVisibility(View.VISIBLE);
+            } else {
+                contactInfoPanel.setVisibility(View.GONE);
+            }
+        });
 
         // RecyclerView des marques
         rvBrands = findViewById(R.id.rv_brands);

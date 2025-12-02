@@ -47,7 +47,6 @@ public class Favoris extends AppCompatActivity{
         adapter = new CarAdapter(favoriteCars, (CarAdapter.OnCarClickListener) this);
         rvFavorites.setAdapter(adapter);
 
-        loadFavorites();
 
         buttonProfil = findViewById(R.id.buttonProfil);
         buttonHome = findViewById(R.id.buttonHome);
@@ -77,28 +76,7 @@ public class Favoris extends AppCompatActivity{
         startActivity(new Intent(Favoris.this, HistoryActivity.class));
     }
 
-    private void loadFavorites() {
-        SharedPreferences prefs = getSharedPreferences("favorites", MODE_PRIVATE);
 
-        favoriteCars.clear();
-
-        for (Car car : allCars) {
-            boolean isFav = prefs.getBoolean(car.getId() + "_fav", false);
-
-            if (isFav) {
-                favoriteCars.add(car);
-            }
-        }
-        adapter.notifyDataSetChanged();
-
-        if (favoriteCars.isEmpty()) {
-            tvEmpty.setVisibility(View.VISIBLE);
-            rvFavorites.setVisibility(View.GONE);
-        } else {
-            tvEmpty.setVisibility(View.GONE);
-            rvFavorites.setVisibility(View.VISIBLE);
-        }
-    }
 
 }
 
