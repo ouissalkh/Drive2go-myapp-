@@ -1,7 +1,7 @@
 {
   "project_info": {
     "project_number": "116681870635",
-    "project_id": "drive2go-cf914",
+    "project_id": "drive2go-44566",
     "storage_bucket": "drive2go-cf914.firebasestorage.app"
   },
   "client": [
@@ -28,7 +28,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:116681870635:android:3b7cb8c91b516d2c47c96e",
         "android_client_info": {
-          "package_name": "com.tonapp.drive2go"
+          "package_name": "com.example.drive2go"
         }
       },
       "oauth_client": [],

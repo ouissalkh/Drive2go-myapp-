@@ -35,7 +35,7 @@ public class ReservationRepository {
 
     // 2️⃣ Charger toutes les réservations pour la liste complète
     public void loadReservations(MutableLiveData<ArrayList<Reservation>> liveData) {
-        db.collection("reservations")
+        db.collection("Reservation")
                 .get()
                 .addOnSuccessListener(query -> {
                     ArrayList<Reservation> list = new ArrayList<>();

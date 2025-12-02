@@ -47,12 +47,22 @@ dependencies {
     implementation libs.firebase.analytics
     annotationProcessor 'androidx.room:room-compiler:2.6.0'
 
-    //firebase
+
+    // FIREBASE
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+
+    // Retire les numéros de version ici, le BOM s'en charge !
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
-    implementation 'com.google.firebase:firebase-database:20.3.0'
+
+    // CORRECTION ICI : Retire ":20.3.0"
+    implementation("com.google.firebase:firebase-database")
+
+    // CORRECTION ICI : Utilise la notation standard sans "libs." si ça pose problème,
+    // ou laisse comme ça si ton catalogue de version est bon.
+    implementation("com.google.firebase:firebase-analytics")
+
     //Envoi d'email
     implementation("com.sun.mail:android-mail:1.6.7")
     implementation("com.sun.mail:android-activation:1.6.7")
