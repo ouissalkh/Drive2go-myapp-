@@ -21,21 +21,12 @@
 =======
             android:name=".ui.Admin.Parck_automobiles.ParckAutomobileActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.Admin.ComposantCommunAdmin.composantActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Admin.ComposantCommunAdmin.composantcommunAdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Admin.ComposantCommunAdmin.ComposantCommunAdminActivity"
-            android:exported="false" />
+
+
         <activity
             android:name=".ui.Admin.addCar.AddCarActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.Admin.addCar.AddCarActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.Admin.Gestion_Users.UsersGestionActivity"
             android:exported="false" />
