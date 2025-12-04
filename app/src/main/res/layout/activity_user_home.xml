@@ -79,16 +79,51 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/filter_panel"
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:background="#F0EFEF"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/moins_plus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="Moins cher au plus cher"
+                android:textColor="@color/black"/>
+            <Button
+                android:id="@+id/plus_mois"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Plus cher au moins cher"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/contact_info_panel"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:background="#F0EFEF"
-        android:visibility="gone"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_bar">
+        app:layout_constraintTop_toBottomOf="@+id/top_bar"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,45 +141,47 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/phone" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0948494404"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-        </LinearLayout>
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:paddingBottom="3dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/phone" />
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/email" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0948494404"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0948494404"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-        </LinearLayout>
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:paddingBottom="3dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/email" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0948494404"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -199,7 +236,7 @@
                     android:id="@+id/tv_app_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Key2Go !"
+                    android:text="Drive2Go !"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"

@@ -9,21 +9,24 @@
     tools:context=".ui.Client.favoris.Favoris">
 
 
-    <!-- Message si aucun favori -->
-    <TextView
-        android:id="@+id/tv_empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Il n’y a pas encore de voitures favorites"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"/>
+    <!-- Image si aucun favori -->
 
     <!-- Liste des favoris -->
+
+    <ImageView
+        android:id="@+id/iv_empty_image"
+        android:layout_width="254dp"
+        android:layout_height="284dp"
+        android:layout_marginTop="220dp"
+        android:contentDescription="Pas de favoris"
+        android:src="@drawable/ic_empty_favorites"
+        app:layout_constraintBottom_toTopOf="@+id/tv_empty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_favorites"
         android:layout_width="0dp"

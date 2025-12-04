@@ -14,20 +14,22 @@
         android:background="@drawable/head_profil"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Bouton retour -->
         <ImageButton
             android:id="@+id/buttonBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="25dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@null"
             android:contentDescription="Retour"
             android:padding="12dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/back"
+            android:src="@drawable/ic_backbtn"
+            app:tint="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
+            android:scaleType="fitCenter"/>
+
 
         <ImageButton
             android:id="@+id/buttonsettings"
@@ -133,15 +135,16 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingVertical="8dp"
-            android:paddingLeft="10dp">
+            android:paddingLeft="10dp"
+            android:scaleType="fitCenter">
 
             <ImageView
                 android:id="@+id/imageemail"
-                android:layout_width="20dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/circle"
                 android:contentDescription="Icône Email"
-                android:padding="3dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/email"
                 app:tint="#990909" />
 
@@ -163,15 +166,16 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingVertical="8dp"
-            android:paddingLeft="10dp">
+            android:paddingLeft="10dp"
+            android:scaleType="fitCenter">
 
             <ImageView
                 android:id="@+id/imagephone"
-                android:layout_width="20dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/circle"
                 android:contentDescription="Icône Téléphone"
-                android:padding="3dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/phone"
                 app:tint="#289011" />
 
@@ -360,25 +364,28 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:contentDescription="Flèche droite"
-                android:src="@drawable/arrow_right" /> </LinearLayout>
+            <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_right"
+            android:background="@drawable/backgoundte"
+            android:padding="12dp"/>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="16dp"
             android:background="#E0E0E0" /> <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?attr/selectableItemBackground">
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
 
         <ImageView
             android:layout_width="20dp"
@@ -396,11 +403,14 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:contentDescription="Flèche droite"
-            android:src="@drawable/arrow_right" />
+        <ImageButton
+            android:id="@+id/btn_notification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_right"
+            android:background="@drawable/backgoundte"
+            android:padding="12dp"/>
     </LinearLayout>
 
         <View
@@ -438,11 +448,13 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:contentDescription="Flèche droite"
-            android:src="@drawable/arrow_right" />
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_right"
+            android:background="@drawable/backgoundte"
+            android:padding="12dp"/>>
     </LinearLayout>
 
         <Space

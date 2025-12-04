@@ -17,6 +17,9 @@ import com.example.drive_2_go.R;
 import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
 import com.example.drive_2_go.ui.Client.favoris.Favoris;
 import com.example.drive_2_go.ui.Client.history.HistoryActivity;
+import com.example.drive_2_go.ui.Client.login.LoginActivity;
+import com.example.drive_2_go.ui.Client.notification.NotificationClientActivity;
+import com.example.drive_2_go.ui.main.MainActivity;
 import com.google.android.material.imageview.ShapeableImageView;
 
 public class Profil extends AppCompatActivity {
@@ -24,6 +27,8 @@ public class Profil extends AppCompatActivity {
     private ShapeableImageView profileImage;
     private ImageButton buttonCamera;
     private Uri imageUri;
+    private ImageButton buttonBack;
+    private ImageButton btn_notification;
     private ImageButton buttonFavoris;
     private ImageButton buttonHome;
     private ImageButton buttonHistory;
@@ -62,7 +67,21 @@ public class Profil extends AppCompatActivity {
         buttonHistory.setOnClickListener(v -> openHistory());
         buttonProfil.setOnClickListener(v -> Toast.makeText(this,"Déjà ici", Toast.LENGTH_SHORT).show());
         selectButton(buttonProfil);
-    }
+        //bouton retour
+        buttonBack = findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(v -> {
+            Intent intent = new Intent(Profil.this, AccueilActivity.class);
+            startActivity(intent);
+            finish();
+        });
+        btn_notification = findViewById(R.id.btn_notification);
+
+        btn_notification.setOnClickListener(v -> {
+            Intent intent = new Intent(Profil.this, NotificationClientActivity.class);
+            startActivity(intent);
+            finish();
+        });    }
 
     private void selectButton(ImageButton button) {
         button.setSelected(true);

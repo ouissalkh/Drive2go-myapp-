@@ -5,13 +5,15 @@ import com.example.drive_2_go.data.model.Car;
 import com.example.drive_2_go.ui.Client.description.DescriptionCarActivity;
 import com.example.drive_2_go.ui.Client.favoris.Favoris;
 import com.example.drive_2_go.ui.Client.history.HistoryActivity;
+import com.example.drive_2_go.ui.Client.login.LoginActivity;
+import com.example.drive_2_go.ui.Client.notification.NotificationClientActivity;
 import com.example.drive_2_go.ui.Client.profil.Profil;
 import com.example.drive_2_go.ui.adapter.BrandAdapter;
-import com.example.drive_2_go.ui.adapter.CarAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnCarClickListener{
+public class AccueilActivity extends AppCompatActivity {
 
     private RecyclerView rvBrands;
     private RecyclerView rvCarListings;
@@ -33,7 +35,10 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
     private ImageButton buttonFavoris;
     private ImageButton buttonHistory;
     private ImageButton btnMenu;
-    private LinearLayout contactInfoPanel;
+    private ImageButton btn_notifications;
+    private Button btnFilter;
+    private androidx.cardview.widget.CardView contactInfoPanel;
+    private androidx.cardview.widget.CardView filterPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,7 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
         btnMenu = findViewById(R.id.btn_menu);
         contactInfoPanel = findViewById(R.id.contact_info_panel);
 
+
         btnMenu.setOnClickListener(v -> {
             if (contactInfoPanel.getVisibility() == View.GONE) {
                 contactInfoPanel.setVisibility(View.VISIBLE);
@@ -61,6 +67,18 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
                 contactInfoPanel.setVisibility(View.GONE);
             }
         });
+        //afficher le menu de filter
+        btnFilter = findViewById(R.id.btn_filter);
+        filterPanel = findViewById(R.id.filter_panel);
+
+        btnFilter.setOnClickListener(v -> {
+            if (filterPanel.getVisibility() == View.GONE) {
+                filterPanel.setVisibility(View.VISIBLE);
+            } else {
+                filterPanel.setVisibility(View.GONE);
+            }
+        });
+
 
         // RecyclerView des marques
         rvBrands = findViewById(R.id.rv_brands);
@@ -77,15 +95,17 @@ public class AccueilActivity extends AppCompatActivity implements CarAdapter.OnC
         rvBrands.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         rvBrands.setAdapter(brandAdapter);
 
-        // RecyclerView des voitures
-        rvCarListings = findViewById(R.id.rv_car_listings);
-        List<Car> availableCars = createCarData();
-        CarAdapter carAdapter = new CarAdapter(availableCars, this);
-        rvCarListings.setLayoutManager(new LinearLayoutManager(this));
-        rvCarListings.setAdapter(carAdapter);
-        selectButton(buttonHome); // si tu es dans Home
+        selectButton(buttonHome); // on est dans Home
+
+        btn_notifications = findViewById(R.id.btn_notifications);
+
+        btn_notifications.setOnClickListener(v -> {
+            Intent intent = new Intent(AccueilActivity.this, NotificationClientActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
-    @Override
+
     public void onCarClick(Car car) {
         // Créer un Intent pour démarrer l'activité de description
         Intent intent = new Intent(AccueilActivity.this, DescriptionCarActivity.class); // <<< Remplacez DescriptionCarActivity.class par le nom réel de votre activité de description

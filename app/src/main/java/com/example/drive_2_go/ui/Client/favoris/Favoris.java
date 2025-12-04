@@ -1,10 +1,10 @@
 package com.example.drive_2_go.ui.Client.favoris;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +17,6 @@ import com.example.drive_2_go.data.model.Car;
 import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
 import com.example.drive_2_go.ui.Client.history.HistoryActivity;
 import com.example.drive_2_go.ui.Client.profil.Profil;
-import com.example.drive_2_go.ui.adapter.CarAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +28,8 @@ public class Favoris extends AppCompatActivity{
     private ImageButton buttonFavoris;
     private ImageButton buttonHistory;
     RecyclerView rvFavorites;
-    TextView tvEmpty;
-    CarAdapter adapter;
+    ImageView ivEmptyImage;
+
     List<Car> allCars = new ArrayList<>();
     List<Car> favoriteCars = new ArrayList<>();
 
@@ -40,13 +39,10 @@ public class Favoris extends AppCompatActivity{
         setContentView(R.layout.activity_favoris);
 
         rvFavorites = findViewById(R.id.rv_favorites);
-        tvEmpty = findViewById(R.id.tv_empty);
+        ivEmptyImage = findViewById(R.id.iv_empty_image);
 
         rvFavorites.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new CarAdapter(favoriteCars, (CarAdapter.OnCarClickListener) this);
-        rvFavorites.setAdapter(adapter);
-
+        checkEmptyState();
 
         buttonProfil = findViewById(R.id.buttonProfil);
         buttonHome = findViewById(R.id.buttonHome);
@@ -74,6 +70,23 @@ public class Favoris extends AppCompatActivity{
     }
     private void openHistory(){
         startActivity(new Intent(Favoris.this, HistoryActivity.class));
+    }
+
+    private void checkEmptyState() {
+        // En supposant que 'favoriteCars' contient la liste actuelle des voitures favorites
+        if (favoriteCars.isEmpty()) {
+            // Liste vide : afficher le message et l'image
+            rvFavorites.setVisibility(View.GONE);
+            ivEmptyImage.setVisibility(View.VISIBLE);
+        } else {
+            // Liste non vide : afficher la liste et masquer le message/image
+            rvFavorites.setVisibility(View.VISIBLE);
+            ivEmptyImage.setVisibility(View.GONE);
+
+            // N'oubliez pas d'initialiser et de définir l'adaptateur ici
+            // Example: FavoritesAdapter adapter = new FavoritesAdapter(favoriteCars);
+            // rvFavorites.setAdapter(adapter);
+        }
     }
 
 

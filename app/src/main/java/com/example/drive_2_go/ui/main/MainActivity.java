@@ -2,16 +2,19 @@ package com.example.drive_2_go.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.drive_2_go.R;
 import com.example.drive_2_go.ui.Client.accueil.AccueilActivity;
+import com.example.drive_2_go.ui.Client.history.HistoryActivity;
 import com.example.drive_2_go.ui.Client.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnStart;
-    private Button buttonfati;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

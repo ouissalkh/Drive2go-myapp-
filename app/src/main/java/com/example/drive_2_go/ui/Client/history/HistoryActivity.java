@@ -74,7 +74,7 @@ public class HistoryActivity extends AppCompatActivity {
      */
     private List<HistoryItem> createDummyHistoryData() {
         List<HistoryItem> list = new ArrayList<>();
-        list.add(new HistoryItem("Renault Captur Auto", "Du 15/09/25 au 20/09/25", "275 dh", "Retournée", true));
+        list.add(new HistoryItem("Renault Captur Auto", "Du 15/09/25 au 20/09/25", "275 dh", "En cours", true));
         list.add(new HistoryItem("BMW M4 Coupé", "Du 01/08/25 au 07/08/25", "550 dh", "Annulée", false));
         list.add(new HistoryItem("Tesla Model 3", "Du 10/06/25 au 12/06/25", "210 dh", "Retournée", true));
         return list;
@@ -183,10 +183,17 @@ public class HistoryActivity extends AppCompatActivity {
 
             // Mise à jour de la couleur du statut
             if (item.status.equals("Retournée")) {
-                holder.tvStatus.setBackgroundResource(R.drawable.rounded_green_background); // Vert
+                // Statut "Retournée" -> Texte en ORANGE
+                holder.tvStatus.setTextColor(Color.parseColor("#FF8C00")); // Orange (DarkOrange)
+
             } else if (item.status.equals("Annulée")) {
-                // Assurez-vous d'avoir un rounded_red_background ou utilisez un code couleur
-                holder.tvStatus.setBackgroundColor(Color.parseColor("#8B0000")); // Rouge foncé
+                // Statut "Annulée" -> Texte en ROUGE
+                holder.tvStatus.setTextColor(Color.RED);
+
+            } else if (item.status.equals("En cours")) {
+                // Statut "En cours" -> Texte en VERT
+                holder.tvStatus.setTextColor(Color.GREEN);
+
             }
         }
 
