@@ -1,4 +1,4 @@
-package com.example.drive_2_go.data.model;
+/*package com.example.drive_2_go.data.model;
 import com.google.firebase.Timestamp;
 public class Reservation {
 
@@ -37,3 +37,4 @@ public class Reservation {
     public Timestamp getDateDebut() { return date_debut; }
     public Timestamp getDateFin() { return date_fin; }
 }
+*/

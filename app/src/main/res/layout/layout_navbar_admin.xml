@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomBar"
+    android:layout_width="320dp"
+    android:layout_height="38dp"
+    android:layout_marginBottom="22dp"
+    android:background="@drawable/bottom_bar_bg"
+    android:elevation="8dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingRight="7dp"
+    android:weightSum="5">
+    <!--android:id="@+id/buttonAnalytics"-->
+    <ImageButton
+        android:id="@+id/buttonHomeAdmin"
+
+
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="home"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/home"
+        app:tint="@color/white"/>
+
+    <ImageButton
+        android:id="@+id/buttonParck"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="Parck Automobile"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_parkautomobile"
+        app:tint="@color/white"/>
+
+    <ImageButton
+        android:id="@+id/buttonReservation"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="reservations"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_navbarreservation"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/buttonUsers"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="profil"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_users"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/buttonLogOut"
+        android:layout_width="4dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:background="@drawable/nav_item_bg"
+        android:contentDescription="Se Déconnecter"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_logout"
+        app:tint="@color/white" />
+</LinearLayout>

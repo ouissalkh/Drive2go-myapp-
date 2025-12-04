@@ -1,14 +1,13 @@
 package com.example.drive_2_go.ui.Admin.Gestion_Reservations;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
@@ -16,77 +15,67 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.drive_2_go.R;
-import com.example.drive_2_go.viewmodel.ReservationViewModel;
+import com.example.drive_2_go.ui.Admin.ComposantCommunAdmin.BaseAdminActivity;
 
-public class ReservationsActivity extends AppCompatActivity {
+public class ReservationsActivity extends BaseAdminActivity {
 
-    private ReservationViewModel viewModel;
+
     private TextView tvTotalCount;
-
-    // --- AJOUT POUR LE DROPDOWN ---
     private AutoCompleteTextView autoCompleteTextView;
     private ArrayAdapter<String> adapterItems;
-    // ------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        setContentView(R.layout.activity_reservations);
+        // 1. Charger le layout
+        try {
+            WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+            setContentView(R.layout.activity_reservations);
+        } catch (Exception e) {
+            Log.e("DEBUG_ERROR", "Erreur lors du setContentView: " + e.getMessage());
+            Toast.makeText(this, "Erreur XML critique", Toast.LENGTH_LONG).show();
+            return; // On arrête tout si le XML est cassé
+        }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawerLayout), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // 2. Navigation (Sécurisée)
+        try {
+            setupNavigation();
+        } catch (Exception e) {
+            Log.e("DEBUG_ERROR", "Erreur dans setupNavigation: " + e.getMessage());
+            // On ne fait rien, comme ça l'appli ne plante pas, juste la barre qui ne marche pas
+        }
 
-        // 1. Initialiser les vues existantes
+        // 3. Gestion des marges système (Sécurisée)
+        View drawerLayout = findViewById(R.id.drawerLayout);
+        if (drawerLayout != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(drawerLayout, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        } else {
+            Log.e("DEBUG_ERROR", "Impossible de trouver R.id.drawerLayout");
+        }
+
+        // 4. Initialisation des vues (Sécurisée)
         tvTotalCount = findViewById(R.id.tv_total_count);
-
-        // ---------------------------------------------------------
-        // 2. CONFIGURATION DU MENU DÉROULANT (DROPDOWN)
-        // ---------------------------------------------------------
-
-        // A. Récupérer la vue
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
-        // B. Définir les options
-        String[] statusItems = {"Tous les statuts", "Confirmée", "En attente", "Annulée", "Terminée"};
+        // 5. Configuration Dropdown
+        if (autoCompleteTextView != null) {
+            String[] statusItems = {"Tous les statuts", "Confirmée", "En attente", "Annulée", "Terminée"};
+            adapterItems = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, statusItems);
+            autoCompleteTextView.setAdapter(adapterItems);
 
-        // C. Créer l'adapter (pont entre la liste et la vue)
-        adapterItems = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, statusItems);
-
-        // D. Assigner l'adapter
-        autoCompleteTextView.setAdapter(adapterItems);
-
-        // E. Gérer le clic sur une option
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelectionne = parent.getItemAtPosition(position).toString();
-
-                // Afficher un message temporaire (Test)
-                Toast.makeText(ReservationsActivity.this, "Filtre : " + itemSelectionne, Toast.LENGTH_SHORT).show();
-
-                // ICI : Tu pourras appeler ton ViewModel pour filtrer la liste plus tard
-                // exemple: viewModel.filterReservations(itemSelectionne);
-            }
-        });
-        // ---------------------------------------------------------
+            autoCompleteTextView.setOnItemClickListener((parent, view, position, id) -> {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(ReservationsActivity.this, "Filtre : " + item, Toast.LENGTH_SHORT).show();
+            });
+        }
 
 
-        // 3. Initialiser le ViewModel
-        viewModel = new ViewModelProvider(this).get(ReservationViewModel.class);
 
-        // 4. Observer les données
-        viewModel.getReservations().observe(this, reservations -> {
-            if (reservations != null) {
-                int total = reservations.size();
-                tvTotalCount.setText(String.valueOf(total));
-            } else {
-                tvTotalCount.setText("0");
-            }
-        });
+
     }
 }
