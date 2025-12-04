@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.adapter;
+/*package com.example.drive_2_go.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,4 +64,4 @@ public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.
             tvStatut = itemView.findViewById(R.id.tvStatut);
         }
     }
-}
+}*/

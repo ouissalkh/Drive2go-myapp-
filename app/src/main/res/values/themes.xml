@@ -1,8 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Drive_2_GO" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- 1. CHANGE LA COULEUR DE LA BARRE DU HAUT ICI -->
+        <!-- Mets @color/emerald_900 si tu l'as défini, sinon mets le code Hex du vert foncé -->
+        <item name="android:statusBarColor">#0D2301</item>
+
+        <!-- 2. COULEUR DES ICONES (Heure, Batterie...) -->
+        <!-- false = Icônes Blanches (pour fond foncé) -->
+        <!-- true = Icônes Noires (pour fond clair) -->
+        <item name="android:windowLightStatusBar">false</item>
+
+
     </style>
 
     <style name="Theme.Drive_2_GO" parent="Base.Theme.Drive_2_GO" />

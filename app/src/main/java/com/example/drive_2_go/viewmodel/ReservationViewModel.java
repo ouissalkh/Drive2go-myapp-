@@ -1,4 +1,4 @@
-package com.example.drive_2_go.viewmodel;
+/*package com.example.drive_2_go.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -33,3 +33,4 @@ public class ReservationViewModel extends ViewModel {
         return reservationsParMois;
     }
 }
+*/

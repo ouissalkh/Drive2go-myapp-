@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<<<<<<< HEAD
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+
+>>>>>>> 5d37a57c54970dd9dd71f1ac3924cdaf257ecc1d
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Drive_2_GO">
         <activity
+<<<<<<< HEAD
+=======
+            android:name=".ui.Admin.Parck_automobiles.ParckAutomobileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Admin.ComposantCommunAdmin.composantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Admin.ComposantCommunAdmin.composantcommunAdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Admin.ComposantCommunAdmin.ComposantCommunAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Admin.addCar.AddCarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Admin.addCar.AddCarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Admin.Gestion_Users.UsersGestionActivity"
+            android:exported="false" />
+        <activity
+>>>>>>> 5d37a57c54970dd9dd71f1ac3924cdaf257ecc1d
             android:name=".ui.Admin.Table_bord.adminActivity"
             android:exported="false" />
         <activity
