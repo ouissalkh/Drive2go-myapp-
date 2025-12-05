@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomBar"
+    android:layout_width="320dp"
+    android:layout_height="38dp"
+    android:layout_marginBottom="22dp"
+    android:background="@drawable/bottom_bar_bg"
+    android:elevation="8dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingRight="7dp"
+    android:weightSum="4">
+
+    <ImageButton
+        android:id="@+id/buttonHome"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="home"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/home"
+        app:tint="@color/bottom_nav_item_color"/>
+
+    <ImageButton
+        android:id="@+id/buttonHistory"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="history"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/history"
+        app:tint="@color/bottom_nav_item_color"/>
+
+    <ImageButton
+        android:id="@+id/buttonFavoris"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="favoris"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/favoris"
+        app:tint="@color/bottom_nav_item_color" />
+
+    <ImageButton
+        android:id="@+id/buttonProfil"
+        android:background="@drawable/nav_item_bg"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:contentDescription="profil"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/user"
+        app:tint="@color/bottom_nav_item_color" />
+</LinearLayout>

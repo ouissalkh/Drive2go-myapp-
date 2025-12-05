@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Drive_2_GO</string>
+    <string name="locations_par_mois">Locations par mois</string>
+    <string name="filter">Filter ˅</string>
+    <string name="search">Search</string>
+    <string name="notifications">Notifications</string>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+
+    <color name ="emerald_900">#0D2301</color>
+    <color name ="blue">#0565F2</color>
+    <color name ="move">#A424BD</color>
+    <color name ="orange">#F57B05</color>
+    <color name ="vert">#11940F</color>
+    <color name ="grey">#454444</color>
+    <color name="teal_primary">#00A98F</color> <!-- Vert/Bleu canard -->
+    <color name="teal_light_bg">#E0F2F1</color> <!-- Fond prix -->
+    <color name="teal_text">#00796B</color>    <!-- Texte prix -->
+    <color name="gray_bg">#F5F7FA</color>       <!-- Fond gris clair -->
+    <color name="blue_bg">#E3F2FD</color>       <!-- Fond bleu clair -->
+    <color name="text_dark">#212121</color>
+    <color name="text_gray">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <color name="teal_700">#00796B</color>
+    <color name="rouge">#EF2C2C</color>
+
+</resources>

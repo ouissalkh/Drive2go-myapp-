@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "116681870635",
+    "project_id": "drive2go-cf914",
+    "storage_bucket": "drive2go-cf914.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116681870635:android:88e8b3c188f8a6f547c96e",
+        "android_client_info": {
+          "package_name": "com.example.drive_2_go"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4yPhPuV2nFujWrRUYpSJ0G8lq5G9mVMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116681870635:android:3b7cb8c91b516d2c47c96e",
+        "android_client_info": {
+          "package_name": "com.tonapp.drive2go"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4yPhPuV2nFujWrRUYpSJ0G8lq5G9mVMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
