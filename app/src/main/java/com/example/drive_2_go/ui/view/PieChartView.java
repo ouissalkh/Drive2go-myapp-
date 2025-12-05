@@ -1,4 +1,4 @@
-package com.example.drive_2_go.ui.view;
+/*package com.example.drive_2_go.ui.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -38,3 +38,4 @@ public class PieChartView extends View {
         }
     }
 }
+*/

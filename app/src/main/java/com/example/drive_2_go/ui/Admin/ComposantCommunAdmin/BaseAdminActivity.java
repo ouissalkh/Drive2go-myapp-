@@ -79,7 +79,7 @@ public abstract class BaseAdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(this, classeCible);
                     startActivity(intent);
                     overridePendingTransition(0, 0); // Supprime l'animation de transition (plus fluide)
-                    finish(); // Ferme l'ancienne activité pour économiser la mémoire
+
                 });
             }
         }

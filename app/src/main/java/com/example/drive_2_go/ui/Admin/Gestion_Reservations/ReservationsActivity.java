@@ -1,11 +1,6 @@
 package com.example.drive_2_go.ui.Admin.Gestion_Reservations;
 
 import android.os.Bundle;
-<<<<<<< HEAD
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-=======
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,32 +8,17 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
->>>>>>> 5d37a57c54970dd9dd71f1ac3924cdaf257ecc1d
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.drive_2_go.R;
-<<<<<<< HEAD
-=======
 import com.example.drive_2_go.ui.Admin.ComposantCommunAdmin.BaseAdminActivity;
 
+// On garde l'héritage de BaseAdminActivity pour la barre de navigation
 public class ReservationsActivity extends BaseAdminActivity {
->>>>>>> 5d37a57c54970dd9dd71f1ac3924cdaf257ecc1d
 
-
-<<<<<<< HEAD
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_reservations);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-=======
     private TextView tvTotalCount;
     private AutoCompleteTextView autoCompleteTextView;
     private ArrayAdapter<String> adapterItems;
@@ -57,12 +37,11 @@ public class ReservationsActivity extends BaseAdminActivity {
             return; // On arrête tout si le XML est cassé
         }
 
-        // 2. Navigation (Sécurisée)
+        // 2. Navigation (Sécurisée) via BaseAdminActivity
         try {
             setupNavigation();
         } catch (Exception e) {
             Log.e("DEBUG_ERROR", "Erreur dans setupNavigation: " + e.getMessage());
-            // On ne fait rien, comme ça l'appli ne plante pas, juste la barre qui ne marche pas
         }
 
         // 3. Gestion des marges système (Sécurisée)
@@ -77,11 +56,11 @@ public class ReservationsActivity extends BaseAdminActivity {
             Log.e("DEBUG_ERROR", "Impossible de trouver R.id.drawerLayout");
         }
 
-        // 4. Initialisation des vues (Sécurisée)
+        // 4. Initialisation des vues
         tvTotalCount = findViewById(R.id.tv_total_count);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
-        // 5. Configuration Dropdown
+        // 5. Configuration Dropdown (Menu déroulant)
         if (autoCompleteTextView != null) {
             String[] statusItems = {"Tous les statuts", "Confirmée", "En attente", "Annulée", "Terminée"};
             adapterItems = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, statusItems);
@@ -92,10 +71,5 @@ public class ReservationsActivity extends BaseAdminActivity {
                 Toast.makeText(ReservationsActivity.this, "Filtre : " + item, Toast.LENGTH_SHORT).show();
             });
         }
-
-
-
-
->>>>>>> 5d37a57c54970dd9dd71f1ac3924cdaf257ecc1d
     }
 }
